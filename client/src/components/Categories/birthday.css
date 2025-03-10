@@ -1,0 +1,200 @@
+/* Container for the birthday gifts page */
+.birthday-gifts-container {
+  padding: 40px;
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #e69b9b, #663838);
+  overflow: hidden;
+  position: relative;
+}
+/* Floating circular shapes */
+.birthday-gifts-container::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+.birthday-gifts-container::after {
+  bottom: -50px;
+  right: -100px;
+}
+
+/* Float animation for background effects */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Grid layout for gift items (ensures 4-5 items per row) */
+.birthday-gifts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Auto adjusts with min 220px */
+  gap: 20px;
+  justify-content: center;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Card styling with proper height and structure */
+.birthday-gift-card {
+  display: flex;
+  flex-direction: column;
+  height: 350px; /* Fixed height for uniformity */
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Image section taking up 80% of the card */
+.gift-image {
+  width: 100%;
+  height: 80%; /* Occupies 80% of the card */
+  object-fit: cover; /* Ensures proper fit */
+  border-bottom: 2px solid #2a2a2a;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect for images */
+.birthday-gift-card:hover .gift-image {
+  transform: scale(1.05);
+}
+
+/* Container for text and buttons (20% height) */
+.gift-details {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Gift text styling */
+.birthday-gift-card h3 {
+  font-size: 1.2rem;
+  color: #131212;
+  margin: 6px 0;
+  text-align: center;
+  display: block;
+  line-height: 1.8;
+  overflow: hidden; /* Hide overflowing text */
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-overflow: ellipsis; /* Display '...' when text overflows */
+  max-width: 100%; /* Ensure the width is restricted to the available space */
+}
+
+
+.birthday-gift-card p {
+  font-size: 0.9rem;
+  color: #080808;
+  margin: 1.5px 0;
+}
+
+/* Button container */
+.buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Buttons styling */
+.add-to-cart-btn,
+.buy-now-btn {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  background-color: #342828;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover effect */
+.add-to-cart-btn:hover,
+.buy-now-btn:hover {
+  background-color: #81ad4e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Active button effect */
+.add-to-cart-btn:active,
+.buy-now-btn:active {
+  background-color: #5e981b;
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .birthday-gifts-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusts for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .birthday-gifts-grid {
+    grid-template-columns: repeat(2, 1fr); /* Show 2 items per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .birthday-gifts-grid {
+    grid-template-columns: repeat(1, 1fr); /* Show 1 item per row on very small screens */
+  }
+}
+
+/* Back Button */
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #342828;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.back-icon {
+  font-size: 1.2rem;
+}
+
+/* Hover effect */
+.back-button:hover {
+  background-color: #1d4816;
+  transform: translateY(-2px);
+}
+
+/* Active button effect */
+.back-button:active {
+  background-color: #794658;
+  transform: translateY(0);
+}
+

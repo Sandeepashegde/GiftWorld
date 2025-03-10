@@ -1,0 +1,198 @@
+/* Categories Page Container */
+.categories-container {
+  padding: 50px;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    #e69b9b,
+    #663838
+  ); /* Subtle background gradient */
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Title styling */
+.categories-container h1 {
+  font-size: 48px;
+  margin-bottom: 30px;
+  color: #333;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  animation: fadeInDown 1s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+/* Creative Animation for Title */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Categories Grid */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Category Card Styling */
+.category-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px; /* 3D effect */
+  transform-style: preserve-3d;
+}
+
+/* 3D Hover Animation */
+.category-card:hover {
+  transform: rotateY(10deg) rotateX(10deg); /* Rotate on hover for 3D effect */
+  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.15); /* More intense shadow on hover */
+}
+
+/* Image Wrapper */
+.category-image-wrapper {
+  overflow: hidden;
+  position: relative;
+  height: 200px;
+}
+
+/* Category Card Image Styling */
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Hover Effect for Image */
+.category-card:hover .category-image {
+  transform: scale(1.1); /* Zoom in on hover */
+  filter: brightness(80%);
+}
+
+/* Overlay Effect */
+.category-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* Show overlay on hover */
+.category-card:hover .category-overlay {
+  opacity: 1;
+}
+
+/* Category Name Styling */
+.category-card h3 {
+  font-size: 20px;
+  padding: 15px;
+  color: #fff;
+  z-index: 2;
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Show category name on hover */
+.category-card:hover h3 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating Background Elements (for more creativity) */
+.categories-container::before,
+.categories-container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent);
+  z-index: 0;
+  animation: float 6s ease-in-out infinite;
+}
+
+.categories-container::before {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  left: -150px;
+}
+
+.categories-container::after {
+  width: 600px;
+  height: 600px;
+  bottom: -150px;
+  right: -200px;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+/* Back Button */
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #342828;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.back-icon {
+  font-size: 1.2rem;
+}
+
+/* Hover effect */
+.back-button:hover {
+  background-color: #1d4816;
+  transform: translateY(-2px);
+}
+
+/* Active button effect */
+.back-button:active {
+  background-color: #794658;
+  transform: translateY(0);
+}

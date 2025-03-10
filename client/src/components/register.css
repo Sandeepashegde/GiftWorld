@@ -1,0 +1,168 @@
+/* Full-screen background with gradient */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #9cb87a,
+    #322f2d
+  ); /* Vibrant gradient background */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating circular shapes */
+.register-container::before,
+.register-container::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+.register-container::before {
+  top: -50px;
+  left: -100px;
+}
+
+.register-container::after {
+  bottom: -50px;
+  right: -100px;
+}
+
+/* Float animation for background effects */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Glassmorphism Register Box */
+.register-box {
+  background: rgb(248, 245, 245); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Slight blur for glass effect */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25); /* Softer shadow */
+  color: #333;
+  width: 350px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Slight border for structure */
+  animation: slideUp 1.2s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Softer text shadow */
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #333;
+  opacity: 0.9;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5); /* Transparent underline */
+  background: transparent;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-bottom: 2px solid #ff8c00; /* Orange glow on focus */
+  color: #333;
+}
+
+.register-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #ff8c00, #e52e71); /* Gradient button */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.6s;
+}
+
+.register-button:hover::before {
+  left: 125%;
+}
+
+.register-button:hover {
+  transform: scale(1.05); /* Slight enlarge */
+  box-shadow: 0 5px 15px rgba(255, 0, 150, 0.5); /* Glowing effect */
+}
+
+.login-link {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.login-link a {
+  color: #ff8c00;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+  color: #e52e71;
+}
